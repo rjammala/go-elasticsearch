@@ -7,6 +7,7 @@ services:
 
 branches:
   only:
+    - master
     - travis
 
 install: true
@@ -33,10 +34,6 @@ matrix:
       go: stable
       env: GO111MODULE=off TEST_SUITE=unit
       before_install:
-        ### TEMPORARY #######################################################
-        - mkdir -p ${TRAVIS_HOME}/gopath/src/github.com/elastic
-        - mv ${TRAVIS_HOME}/gopath/src/github.com/karmi/go-elasticsearch ${TRAVIS_HOME}/gopath/src/github.com/elastic/go-elasticsearch
-        #####################################################################
         - go get -u golang.org/x/lint/golint
         - go get -u gotest.tools/gotestsum
       install:
